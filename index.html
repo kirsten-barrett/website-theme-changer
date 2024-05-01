@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-default">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./popup.js" defer></script>
+    <script src="./colorChange.js" defer></script>
+    <script src="https://kit.fontawesome.com/29cf654041.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Website Color Theme</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+
+            <div>
+                <button class="open-btn theme-default-opposite" id="open-btn">Change Theme</button>
+                
+            </div>
+    
+            <div id="popup" class="popup">
+                <div class="popup-overlay"></div>
+                <div class="theme-default-opposite main-popup" id="main-popup">
+                    <div class="popup-content">
+                        <span id="close-btn" class="close-btn"><i class="fa-solid fa-caret-down"></i>HIDE OPTIONS</span>
+                        <span class="color-button coffee"><i class="fa-solid fa-toggle-off coffee-icon"></i>Coffee</span>
+                        <br>
+                        <span class="color-button bw"><i class="fa-solid fa-toggle-off bw-icon"></i>B&W</span>
+                        <br>
+                        <span class="color-button green"><i class="fa-solid fa-toggle-off green-icon"></i>Natural</span>
+                        <br>
+                        <span class="color-button blue"><i class="fa-solid fa-toggle-on blue-icon"></i>Cool</span>
+                        <br><br>
+                        <!--<span class="color-button dark-mode"><i class="fa-solid fa-toggle-off dark-mode-icon"></i>Dark Mode</span>-->
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <main class="main-content">
+        <h1>This is a sample heading</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <br>
+        <div class="flex-box">
+            <div class="sample-content"></div>
+            <div class="sample-content theme-default-opposite"></div>
+        </div>
+    </main>
+
+</body>
+</html>
