@@ -1,7 +1,45 @@
 // univerisal selectors
 const themeDefault = document.querySelectorAll('.theme-default');
 const themeOpposite = document.querySelectorAll('.theme-default-opposite');
-const popupOpenBtn = document.querySelector('.open-btn');
+const popupMain = document.querySelector('.main-popup')
+
+let colorLight;
+let colorDark;
+
+// change color theme
+function colorChange(color1, color2) {
+    colorLight = color1;
+    colorDark = color2;
+
+    themeDefault.forEach(el => el.style.backgroundColor = colorLight);
+    themeDefault.forEach(el => el.style.color = colorDark);
+    themeOpposite.forEach(el => el.style.backgroundColor = colorDark);
+    themeOpposite.forEach(el => el.style.color = colorLight); 
+    popupMain.style.backgroundColor = colorDark;
+    popupMain.style.color = colorLight;
+
+    saveTheme(color1, color2);
+}
+
+// save chosen theme to localstorage
+function saveTheme(color1, color2) {
+    localStorage.setItem('theme1', color1);
+    localStorage.setItem('theme2', color2);
+ }
+
+ // check if theme is saved to localstorage on page load
+const savedThemeBgColor = localStorage.getItem('theme1');
+const savedThemeColor = localStorage.getItem('theme2');
+ if (savedThemeBgColor, savedThemeColor) {
+    themeDefault.forEach(el => el.style.backgroundColor = savedThemeBgColor);
+    themeDefault.forEach(el => el.style.color = savedThemeColor);
+    themeOpposite.forEach(el => el.style.backgroundColor = savedThemeColor);
+    themeOpposite.forEach(el => el.style.color = savedThemeBgColor);
+    popupMain.style.backgroundColor = savedThemeColor;
+    popupMain.style.color = savedThemeBgColor;
+ }
+
+ // toggle selectors:
 
 // coffee selectors
 const coffeeButton = document.querySelector('.coffee');
@@ -21,13 +59,8 @@ coffeeButton.addEventListener('click', () => {
   blueIcon.classList.add("fa-toggle-off");
 
   /*darkModeToggle.classList.remove("fa-toggle-on");
-  darkModeToggle.classList.add("fa-toggle-off");*/
-
-  themeDefault.forEach(el => el.style.backgroundColor = '#F2EDD7');
-  themeDefault.forEach(el => el.style.color = '#755139');
-  themeOpposite.forEach(el => el.style.backgroundColor = '#755139');
-  themeOpposite.forEach(el => el.style.color = '#F2EDD7');
-})
+    darkModeToggle.classList.add("fa-toggle-off");*/
+});
 
 // black & white selectors
 const blackWhiteButton = document.querySelector('.bw');
@@ -47,12 +80,7 @@ blackWhiteButton.addEventListener('click', () => {
   blueIcon.classList.add("fa-toggle-off");
 
   /*darkModeToggle.classList.remove("fa-toggle-on");
-  darkModeToggle.classList.add("fa-toggle-off");*/
-
-  themeDefault.forEach(el => el.style.backgroundColor = '#fff');
-  themeDefault.forEach(el => el.style.color = '#000');
-  themeOpposite.forEach(el => el.style.backgroundColor = '#000');
-  themeOpposite.forEach(el => el.style.color = '#fff');
+    darkModeToggle.classList.add("fa-toggle-off");*/
 })
 
 // natural green selectors
@@ -73,12 +101,7 @@ greenButton.addEventListener('click', () => {
   blueIcon.classList.add("fa-toggle-off");
 
   /*darkModeToggle.classList.remove("fa-toggle-on");
-  darkModeToggle.classList.add("fa-toggle-off");*/
-
-  themeDefault.forEach(el => el.style.backgroundColor = '#F0EDCC');
-  themeDefault.forEach(el => el.style.color = '#024d4a');
-  themeOpposite.forEach(el => el.style.backgroundColor = '#024d4a');
-  themeOpposite.forEach(el => el.style.color = '#F0EDCC');
+    darkModeToggle.classList.add("fa-toggle-off");*/
 })
 
 // cool blue selectors
@@ -97,57 +120,7 @@ blueButton.addEventListener('click', () => {
 
     greenIcon.classList.remove("fa-toggle-on");
     greenIcon.classList.add("fa-toggle-off");
-  
+
     /*darkModeToggle.classList.remove("fa-toggle-on");
     darkModeToggle.classList.add("fa-toggle-off");*/
-  
-    themeDefault.forEach(el => el.style.backgroundColor = '#DCE2F0');
-    themeDefault.forEach(el => el.style.color = '#50586C');
-    themeOpposite.forEach(el => el.style.backgroundColor = '#50586C');
-    themeOpposite.forEach(el => el.style.color = '#DCE2F0');
-  })
-
-// dark mode selectors
-/*
-const darkModeButton = document.querySelector('.dark-mode');
-const darkModeToggle = document.querySelector('.dark-mode-icon');
-// toggle dark mode
-darkModeButton.addEventListener('click', () => {
-  if (darkModeToggle.classList.contains("fa-toggle-off")) {
-    darkModeToggle.classList.remove("fa-toggle-off");
-    darkModeToggle.classList.add("fa-toggle-on");
-
-    if (coffeeIcon.classList.contains("fa-toggle-on")) {
-      html.style.backgroundColor = '#755139';
-      html.style.color = '#F2EDD7';
-      signature.src = './images/signature_coffee_light.png';
-    } else if (blackWhiteIcon.classList.contains("fa-toggle-on")) {
-      html.style.backgroundColor = '#000';
-      html.style.color = '#fff';
-      signature.src = './images/signature_bnw_light.png';
-    } else if (greenIcon.classList.contains("fa-toggle-on")) {
-      html.style.backgroundColor = '#024d4a';
-      html.style.color = '#F0EDCC';
-      signature.src = './images/signature_green_light.png';
-    }
-  } 
-  else if (darkModeToggle.classList.contains("fa-toggle-on")) {
-    darkModeToggle.classList.remove("fa-toggle-on");
-    darkModeToggle.classList.add("fa-toggle-off");
-
-    if (coffeeIcon.classList.contains("fa-toggle-on")) {
-      html.style.backgroundColor = '#F2EDD7';
-      html.style.color = '#755139';
-      signature.src = './images/signature_coffee_dark.png';
-    } else if (blackWhiteIcon.classList.contains("fa-toggle-on")) {
-      html.style.backgroundColor = '#fff';
-      html.style.color = '#000';
-      signature.src = './images/signature_bnw_dark.png';
-    } else if (greenIcon.classList.contains("fa-toggle-on")) {
-      html.style.backgroundColor = '#F0EDCC';
-      html.style.color = '#024d4a';
-      signature.src = './images/signature_green_dark.png';
-    }
-  }
 })
-*/
